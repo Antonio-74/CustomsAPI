@@ -49,4 +49,20 @@ export class ResponseUtil {
             errors: null
         });
     }
+
+    public static forbidden(res: Response, message = 'Forbidden') {
+        return res.status(403).json({
+            message,
+            data: null,
+            errors: null
+        });
+    }
+
+    public static conflict(res: Response, message = 'Conflict') {
+        return res.status(409).json({
+            message,
+            data: null,
+            errors: null
+        });
+    }
 }

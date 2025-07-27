@@ -27,7 +27,7 @@ export class AuthController {
             // check if user already exist
             const user = await this.findUserUseCase.execute(registerDto?.username as string);
             if(user) {
-                ResponseUtil.badRequest(res, `Username ${registerDto?.username} already exists`);
+                ResponseUtil.conflict(res, `Username ${registerDto?.username} already exists`);
                 return;
             }
 
@@ -55,14 +55,14 @@ export class AuthController {
             // check if user exists
             const user = await this.findUserUseCase.execute(loginDto!.username);
             if(!user) {
-                ResponseUtil.badRequest(res, `Username ${loginDto!.username} does not exist!`);
+                ResponseUtil.conflict(res, `Username ${loginDto!.username} does not exist!`);
                 return;
             }
 
             // validate user password
             const validateUser = await this.validateUserUseCase.execute(loginDto!.password, user.password);           
             if(!validateUser) {
-                ResponseUtil.badRequest(res, 'Invalid Credentials!');
+                ResponseUtil.unauthorized(res, 'Invalid Credentials!');
                 return;
             }
 

@@ -56,7 +56,7 @@ export class CustomerController {
             // validate if customer exist
             const customerFound = await this.getCustomerByIdUseCase.execute(updateDto!.id);
             if(!customerFound) {
-                ResponseUtil.badRequest(res, `Customer with id ${updateDto?.id} not found!`);
+                ResponseUtil.notFound(res, `Customer with id ${updateDto?.id} not found!`);
                 return;
             } 
 
@@ -103,7 +103,7 @@ export class CustomerController {
             // validate if customer extist
             const customerFound = await this.getCustomerByIdUseCase.execute(id);
             if(!customerFound) {
-                ResponseUtil.badRequest(res, `Customer with id ${id} was not found!`);
+                ResponseUtil.notFound(res, `Customer with id ${id} was not found!`);
                 return;
             }
 
@@ -128,7 +128,7 @@ export class CustomerController {
             // validate if customer exists
             const customerFound = await this.getCustomerByIdUseCase.execute(statusCustomerDto!.id);
             if(!customerFound) {
-                ResponseUtil.badRequest(res, `Customer with id ${statusCustomerDto!.id} was not found!`);
+                ResponseUtil.notFound(res, `Customer with id ${statusCustomerDto!.id} was not found!`);
                 return;
             }
 

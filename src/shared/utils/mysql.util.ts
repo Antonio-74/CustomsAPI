@@ -45,4 +45,13 @@ export class MySqlUtil {
         const [result] = await pool.execute<ResultSetHeader>(sql, values);
         return result.affectedRows;
     }
+
+    static async callProcedure<T>(procedureName: string, params: (string | number | boolean | null)[] = []): Promise<T[]> {
+        const placeholders = params.map(() => '?').join(', ');
+        const sql = `CALL ${procedureName}(${placeholders})`;
+        const [rows] = await pool.query(sql, params);
+        
+        // El resultado de CALL puede venir como [[rows], other]
+        return Array.isArray(rows) ? (rows[0] as T[]) : [];
+    }
 }

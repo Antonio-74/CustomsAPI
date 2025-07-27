@@ -1,5 +1,7 @@
 import express, { Router } from "express";
+import swaggerUi from 'swagger-ui-express';
 import cookieParser from 'cookie-parser';
+import { swaggerSpec } from "../shared/config/swagger-options.config";
 
 
 interface Options {
@@ -27,6 +29,9 @@ export class Server {
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(cookieParser());
+
+        // routes documentation
+        this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
         // routes
         this.app.use(this.routes);
