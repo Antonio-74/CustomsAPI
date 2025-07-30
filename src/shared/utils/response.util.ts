@@ -26,11 +26,11 @@ export class ResponseUtil {
         });
     }
 
-    public static notFound(res: Response, message = 'Resource not found') {
+    public static notFound(res: Response, errors: string, message = 'Not found') {
         return res.status(404).json({
             message,
             data: null,
-            errors: null
+            errors: errors
         });
     }
 

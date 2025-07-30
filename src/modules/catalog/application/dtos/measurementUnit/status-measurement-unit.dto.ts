@@ -1,0 +1,20 @@
+
+export class StatusMeasurementUnitDto {
+    constructor(
+        public id: number,
+        public active: boolean
+    ) {}
+
+    static async create(id: number, props: {[key: string]: boolean} = {}): Promise<[string?, StatusMeasurementUnitDto?]> {
+        if(!props) return ['Invalid request data'];
+        const { active } = props;
+
+        if(isNaN(id)) return ['id param is not a number'];
+        if(typeof active === 'boolean') return ['active field has to be a boolean'];
+
+        return [
+            undefined,
+            new StatusMeasurementUnitDto(id, active as boolean)
+        ];
+    }
+}

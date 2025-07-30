@@ -52,4 +52,4 @@ export class SupplierRepository implements ISupplierRepository {
 
         return statusUpdated;
     }
-}
+} 

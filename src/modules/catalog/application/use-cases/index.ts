@@ -27,3 +27,17 @@ export * from './documentType/get-document-types.use-case';
 export * from './documentType/get-document-type.use-case';
 export * from './documentType/status-document-type.use-case';
 export * from './documentType/find-document-type-by-code.use-case';
+
+// country use cases
+export * from './country/create-country.use-case';
+export * from './country/update-country.use-case';
+export * from './country/get-countries.use-case';
+export * from './country/get-country.use-case';
+export * from './country/status-country.use-case';
+
+// measurement unit use cases
+export * from './measurementUnit/create-measurement-unit.use-case';
+export * from './measurementUnit/update-measurement-unit.use-case';
+export * from './measurementUnit/get-measurement-units.use-case';
+export * from './measurementUnit/get-measurement-unit.use-case';
+export * from './measurementUnit/status-measurement-unit.use-case';

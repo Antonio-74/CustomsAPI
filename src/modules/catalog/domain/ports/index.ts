@@ -31,3 +31,19 @@ export * from './documentType/get-document-types.use-case.interface';
 export * from './documentType/get-document-type.use-case.interface';
 export * from './documentType/status-document-type.use-case.interface';
 export * from './documentType/find-document-type-by-code.use-case.interface';
+
+// country
+export * from './country/country.repository.interface';
+export * from './country/create-country.use-case.interface';
+export * from './country/update-country.use-case.interface';
+export * from './country/get-countries.use-case.interface';
+export * from './country/get-country.use-case.interface';
+export * from './country/status-country.use-case.interface';
+
+// measurement unit
+export * from './measurementUnit/measurement-unit.repository.interface';
+export * from './measurementUnit/create-measurement-unit.use-case.interface';
+export * from './measurementUnit/update-measurement-unit.use-case.interface';
+export * from './measurementUnit/get-measurement-units.use-case.interface';
+export * from './measurementUnit/get-measurement-unit.use-case.interface';
+export * from './measurementUnit/status-measurement-unit.use-case.interface';
